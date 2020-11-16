@@ -65,7 +65,7 @@ public class Emprestimo {
 	}
 
 	public void setDataEmprestimo(DateTime dataAtual) {
-		DateTimeFormatter fmt = DateTimeFormat.forPattern("YYYY/MM/dd");
+		DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/YYYY");
 		this.dataEmprestimo = dataAtual.toString(fmt);
 		setDataDevolucaoPrevista();
 	}
@@ -83,14 +83,14 @@ public class Emprestimo {
 	}
 
 	private void setDataDevolucaoPrevista() {
-		DateTimeFormatter fmt = DateTimeFormat.forPattern("YYYY/MM/dd");
+		DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/YYYY");
 		DateTime data = fmt.parseDateTime(getDataEmprestimo());
 		this.dataDevolucaoPrevista = data.plusDays(8).toString(fmt);
 	}
 
 	public boolean ehDomingo(String data) {
 		boolean isValida = false;
-		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy/MM/dd");
+		DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/yyyy");
 		if (validaData(data) == true) {
 			DateTime umaData = fmt.parseDateTime(data);
 			if (umaData.dayOfWeek().getAsText().equals("Domingo")) {
@@ -101,7 +101,7 @@ public class Emprestimo {
 	}
 
 	public boolean validaData(String data) {
-		DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		df.setLenient(false); //
 		try {
 			df.parse(data); // data válida
@@ -112,7 +112,7 @@ public class Emprestimo {
 	}
 
 	public Integer verificaAtraso() {
-		DateTimeFormatter fmt = DateTimeFormat.forPattern("YYYY/MM/dd");
+		DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/YYYY");
 		DateTime dataAtual = fmt.parseDateTime(new DateTime().toString(fmt));
 		DateTime dataDevolucaoPrevista = fmt.parseDateTime(getDataDevolucaoPrevista());
 		int dias = Days.daysBetween(dataAtual, dataDevolucaoPrevista).getDays();
