@@ -74,8 +74,10 @@ public class Emprestimo {
 		return dataDevolucao;
 	}
 
-	public void setDataDevolucao(String dataDevolucao) {
-		this.dataDevolucao = dataDevolucao;
+	public void setDataDevolucao(DateTime dataAtual) {
+		DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/YYYY");
+		DateTime data = fmt.parseDateTime(getDataEmprestimo());
+		this.dataDevolucao = dataAtual.toString(fmt);
 	}
 
 	public String getDataDevolucaoPrevista() {

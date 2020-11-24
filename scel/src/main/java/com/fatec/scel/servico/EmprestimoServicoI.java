@@ -46,6 +46,27 @@ public class EmprestimoServicoI implements EmprestimoServico {
 		}
 		return mensagem;
 	}
+	public String devolucao(Emprestimo emprestimo) {
+		String mensagem = "";
+		try {
+			List<Emprestimo> emprestimos = findByRa(emprestimo.getRa());
+			if (emprestimosEmAberto(emprestimos) == true) {
+				logger.info(
+						"======================> existe emprestimo em aberto");
+				DateTime dataAtual = new DateTime();
+				emprestimo.setDataDevolucao(dataAtual);
+				emprestimoRepository.save(emprestimo);
+				mensagem = "Devolucao registrada";
+			} else {
+				logger.info("======================> não achou livro/aluno no db");
+				mensagem = "Livro/Aluno não localizado ou emprestimo não há emprestimo em aberto";
+			}
+		} catch (Exception e) {
+			logger.info("erro nao esperado no cadastro de emprestimo ===> " + e.getMessage());
+			mensagem = "Erro não esperado contacte o administrador";
+		}
+		return mensagem;
+	}
 
 	public Iterable<Emprestimo> findAll() {
 		return emprestimoRepository.findAll();
