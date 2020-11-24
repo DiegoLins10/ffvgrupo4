@@ -29,9 +29,9 @@
 		<br />
 		<h3>Devolução emprestimo</h3>
 		<div class="card">
-			<div class="card-body" style="height: 500px">
+			<div class="card-body" style="height: 300px">
 				<div class="col-md-8">
-					<form action="#" th:action="@{/emprestimos/consultarDevolucao}"
+					<form action="#" th:action="@{/emprestimos/atualizarDevolucao}"
 						th:object="${emprestimo}" method="post">
 						<div class="row">
 							<div class="form-group col-md-4">
@@ -54,44 +54,8 @@
 						<div class="form-group col-md-20">
 							<input type="submit" class="btn btn-primary" value="Confirmar">
 							<a type="submit" class="btn btn-primary"
-								th:href="@{/emprestimos/consultarDevolucao}"> Cancelar</a>
+								th:href="@{/emprestimos/consultar}"> Prosseguir</a>
 						</div>
-						<div class="row">
-							<div class="form-group col-md-4">
-								<label for="ra" class="col-form-label">Emprestimos em
-									aberto</label> <input type="text" th:field="*{ra}" class="form-control"
-									id="ra" placeholder="" style="width: 396%; height: 165%">
-								<span th:if="${#fields.hasErrors('ra')}" th:errors="*{ra}"
-									class="text-danger"> </span>
-								<div class="panel-body" th:switch="${emprestimos}">
-									<h2 th:case="null"></h2>
-									<div th:case="*">
-										<table class="table"
-											style="margin-top: -87px; width: max-content;">
-											<thead>
-												<tr>
-													<th>ID</th>
-													<th>Data de Devolução</th>
-													<th>Data de devolução prevista</th>
-													<th>Data emprestimo</th>
-													<th>ISBN</th>
-													<th>RA</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr th:each="emprestimo : ${emprestimos}">
-													<td th:text="${emprestimo.id}"></td>
-													<td th:text="${emprestimo.dataDevolucao}"></td>
-													<td th:text="${emprestimo.dataDevolucaoPrevista}"></td>
-													<td th:text="${emprestimo.dataEmprestimo}"></td>
-													<td th:text="${emprestimo.isbn}"></td>
-													<td th:text="${emprestimo.ra}"></td>
-													<td></td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
 					</form>
 				</div>
 			</div>

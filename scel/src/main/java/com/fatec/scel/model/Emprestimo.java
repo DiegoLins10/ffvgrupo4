@@ -3,6 +3,8 @@ package com.fatec.scel.model;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -76,7 +78,6 @@ public class Emprestimo {
 
 	public void setDataDevolucao(DateTime dataAtual) {
 		DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/YYYY");
-		DateTime data = fmt.parseDateTime(getDataEmprestimo());
 		this.dataDevolucao = dataAtual.toString(fmt);
 	}
 
@@ -120,5 +121,7 @@ public class Emprestimo {
 		int dias = Days.daysBetween(dataAtual, dataDevolucaoPrevista).getDays();
 		return dias;
 	}
-
+	public String toma (String a){
+		 return getDataEmprestimo();
+	 }
 }

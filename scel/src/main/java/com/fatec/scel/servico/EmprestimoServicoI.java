@@ -46,17 +46,16 @@ public class EmprestimoServicoI implements EmprestimoServico {
 		}
 		return mensagem;
 	}
+
 	public String devolucao(Emprestimo emprestimo) {
 		String mensagem = "";
 		try {
 			List<Emprestimo> emprestimos = findByRa(emprestimo.getRa());
 			if (emprestimosEmAberto(emprestimos) == true) {
-				logger.info(
-						"======================> existe emprestimo em aberto");
+				logger.info("======================> existe emprestimo em aberto");
 				DateTime dataAtual = new DateTime();
 				emprestimo.setDataDevolucao(dataAtual);
-				emprestimoRepository.save(emprestimo);
-				mensagem = "Devolucao registrada";
+				mensagem = "Devolução pronta para ser registrada! Clique em prosseguir";
 			} else {
 				logger.info("======================> não achou livro/aluno no db");
 				mensagem = "Livro/Aluno não localizado ou emprestimo não há emprestimo em aberto";
@@ -98,5 +97,23 @@ public class EmprestimoServicoI implements EmprestimoServico {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public String registraDevolucao(String datinha) {
+		Emprestimo emp = new Emprestimo();
+		DateTime data = new DateTime();
+		emp.setDataEmprestimo(data);
+		data.toString();
+		emprestimoRepository.save(emp);
+		datinha = data.toString();
+		return "Devolvido em:" + datinha;
+	}
+
+	@Override
+	public void entregue() {
+		String a = "";
+		Emprestimo emp = new Emprestimo();
+		emp.toma(a);
 	}
 }
