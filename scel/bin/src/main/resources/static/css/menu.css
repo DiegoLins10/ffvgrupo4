@@ -1,0 +1,166 @@
+@charset "ISO-8859-1";
+
+@font-face {
+	font-family: Madeleina;
+	src: url(MadeleinaSans.otf);
+}
+
+body {
+	font-family: Madeleina;
+	background: #fafafa;
+}
+
+.wrapper {
+	display: flex;
+	flex-wrap: flex;
+}
+
+#sidebar {
+	width: 80px;
+	order: 1;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	z-index: 999;
+	background: #8bb957;
+	color: rgb(199, 194, 194);
+	font-size: 14px;
+	transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+	transform-origin: bottom left;
+}
+
+#sidebar ul.components {
+	padding: 20px 0;
+	/* border-bottom: 1px solid #47748b; */
+}
+
+#sidebar ul p {
+	color: #fff;
+	padding: 10px;
+}
+
+#sidebar ul li a {
+	padding: 10px;
+	font-size: 1.1em;
+	display: block;
+}
+
+#sidebar.active {
+	margin-left: -250px;
+	transform: rotateY(100deg);
+}
+
+#sidebar .sidebar-header {
+	padding: 10px;
+}
+
+#sidebarCollapse {
+	width: 40px;
+	height: 40px;
+	background: #f5f5f5;
+	cursor: pointer;
+}
+
+#sidebarCollapse span {
+	width: 80%;
+	height: 2px;
+	margin: 0 auto;
+	display: block;
+	background: #555;
+	transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+	transition-delay: 0.2s;
+}
+
+#sidebarCollapse span:first-of-type {
+	transform: rotate(45deg) translate(2px, 2px);
+}
+
+#sidebarCollapse span:nth-of-type(2) {
+	opacity: 0;
+}
+
+#sidebarCollapse span:last-of-type {
+	transform: rotate(-45deg) translate(1px, -1px);
+}
+
+#sidebarCollapse.active span {
+	transform: none;
+	opacity: 1;
+	margin: 5px auto;
+}
+
+.logo-menu {
+	width: 40px;
+	height: 40px;
+	margin-left: 5px;
+}
+
+.lista-icone {
+	margin-top: -10px;
+}
+
+.icones-menu {
+	width: 35px;
+	height: 35px;
+	margin-left: 18px;
+	opacity: 0.5;
+}
+
+.texto-icones {
+	font-family: Madeleina;
+	font-size: 16px;
+	margin-top: -10px;
+	margin-left: 4px;
+}
+
+#content {
+	flex: 1 1 100%;
+	order: 2;
+	padding: 10px 20px 10px 20px;
+	min-height: 100vh;
+	max-height: 100vh;
+	overflow: auto;
+	transition: all 0.3s;
+}
+
+.navbar {
+	padding: 15px 10px;
+	background: #fff;
+	border: none;
+	border-radius: 0;
+	margin-bottom: 40px;
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+	box-shadow: none;
+	outline: none !important;
+	border: none;
+	display: none;
+}
+
+.icons-navbar {
+	font-size: 24px;
+	color: rgb(125, 127, 199);
+	margin-right: 10px;
+}
+
+.icons-navbar:hover {
+	color: rgba(8, 8, 8, 0.74);
+}
+
+.textos-nav {
+	font-size: 25px;
+}
+
+a[data-toggle="collapse"] {
+	position: relative;
+}
+
+.dropdown-toggle::after {
+	display: block;
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+}
