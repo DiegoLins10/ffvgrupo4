@@ -6,6 +6,8 @@ import javax.validation.Valid;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -100,10 +102,33 @@ public class EmprestimoController {
 
 	@GetMapping("/entregue")
 	public ModelAndView entrega() {
-		ModelAndView modelAndView = new ModelAndView("ConsultarEmprestimo");
+		ModelAndView modelAndView = new ModelAndView("consultarEmprestimo");
+		//emprestimoServico.registraDevolucao(ra);
 		modelAndView.addObject("emprestimos", emprestimoServico.findAll());
 		return modelAndView;
 
+	}
+	@PostMapping("/update/{id}")
+	public ModelAndView atualizaAluno(@PathVariable("id") Long id, @Valid Emprestimo emprestimo, BindingResult result) {
+		if (result.hasErrors()) {
+			Emprestimo umAluno = emprestimoServico.findById(id);
+			DateTime dataAtual = new DateTime();
+			DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/YYYY");
+			String date = dataAtual.toString(fmt);
+			umAluno.setDataDevolucao(date);
+			umAluno.setRa(umAluno.getRa());
+			umAluno.setIsbn(umAluno.getIsbn());
+			umAluno.getDataEmprestimo();
+			umAluno.getDataDevolucaoPrevista();
+			emprestimo.setId(id);
+			emprestimoServico.save(umAluno);
+			
+			
+			return new ModelAndView("consultarAluno");
+		}
+		ModelAndView modelAndView = new ModelAndView("consultarEmprestimo");
+		modelAndView.addObject("emprestimos", emprestimoServico.findAll());
+		return modelAndView;
 	}
 
 }

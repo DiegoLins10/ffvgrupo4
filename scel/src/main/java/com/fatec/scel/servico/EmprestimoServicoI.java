@@ -4,6 +4,8 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.fatec.scel.controller.EmprestimoController;
@@ -54,8 +56,12 @@ public class EmprestimoServicoI implements EmprestimoServico {
 			if (emprestimosEmAberto(emprestimos) == true) {
 				logger.info("======================> existe emprestimo em aberto");
 				DateTime dataAtual = new DateTime();
-				emprestimo.setDataDevolucao(dataAtual);
-				mensagem = "Devolução pronta para ser registrada! Clique em prosseguir";
+				String d;
+				DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/YYYY");
+				d = dataAtual.toString(fmt);
+				emprestimo.setDataDevolucao(d);
+				save(emprestimo);
+				mensagem = "Devolução pronta para ser registrada! Clique em prosseguir.";
 			} else {
 				logger.info("======================> não achou livro/aluno no db");
 				mensagem = "Livro/Aluno não localizado ou emprestimo não há emprestimo em aberto";
@@ -73,6 +79,9 @@ public class EmprestimoServicoI implements EmprestimoServico {
 
 	public void deleteById(Long id) {
 		emprestimoRepository.deleteById(id);
+	}
+	public Emprestimo findById(Long id) {
+		return emprestimoRepository.findById(id).get();
 	}
 
 	public List<Emprestimo> findByRa(String ra) {

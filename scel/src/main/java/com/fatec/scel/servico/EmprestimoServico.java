@@ -1,6 +1,8 @@
 package com.fatec.scel.servico;
 
 import java.util.List;
+
+import com.fatec.scel.model.Aluno;
 import com.fatec.scel.model.Emprestimo;
 import com.fatec.scel.model.EmprestimoRepository;
 import com.fatec.scel.model.Livro;
@@ -21,4 +23,6 @@ public interface EmprestimoServico {
 	public String registraDevolucao(String ra); // supoe que ra refere-se ao tombo
 
 	public void entregue();
+	
+	public Emprestimo findById(Long id); 
 }

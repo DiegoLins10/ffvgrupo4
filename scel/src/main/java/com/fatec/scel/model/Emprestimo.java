@@ -12,6 +12,7 @@ import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Emprestimo {
@@ -27,6 +28,7 @@ public class Emprestimo {
 	private String dataEmprestimo;
 	private String dataDevolucao;
 	private String dataDevolucaoPrevista;
+	@Autowired
 
 	public Emprestimo(String isbn, String ra) {
 		this.isbn = isbn;
@@ -76,9 +78,10 @@ public class Emprestimo {
 		return dataDevolucao;
 	}
 
-	public void setDataDevolucao(DateTime dataAtual) {
+	public List<Emprestimo> setDataDevolucao(String dataAtual) {
 		DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/YYYY");
-		this.dataDevolucao = dataAtual.toString(fmt);
+		this.dataDevolucao = dataAtual;;
+		return null;
 	}
 
 	public String getDataDevolucaoPrevista() {

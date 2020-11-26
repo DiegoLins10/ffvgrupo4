@@ -24,7 +24,7 @@
 				rel="stylesheet" />
 		</div>
 		<div class="panel-body" th:switch="${alunos}">
-			<h2 th:case="null">Não existem alunos cadastrados ainda!</h2>
+			<h2 th:case="null">Devolução concluida! Obrigado.</h2>
 			<div th:case="*">
 				<table class="table">
 					<thead>
@@ -46,7 +46,7 @@
 							<td th:text="${aluno.cep}"></td>
 							<td th:text="${aluno.endereco}"></td>
 							<td>
-								<<div class="btn-group pull-right">
+								<div class="btn-group pull-right">
 									<a class="btn btn-sm btn-primary"
 										th:href="@{/aluno/edit/{ra}(ra=${aluno.ra})}">Editar</a>
 									<a class="delete btn btn-sm btn-danger"

@@ -24,7 +24,7 @@
 				rel="stylesheet" />
 		</div>
 		<div class="panel-body" th:switch="${emprestimos}">
-			<h2 th:case="null">Não existem Empréstimos!</h2>
+			<h2 th:case="null">Devolucao concluida!</h2>
 			<div th:case="*">
 				<table class="table">
 					<thead>
@@ -46,8 +46,8 @@
 							<td th:text="${emprestimo.dataDevolucao}" id="t"></td>
 							<td th:text="${emprestimo.dataDevolucaoPrevista}"></td>
 							<td>
-								<div class="btn-group pull-right">
-									<a class="delete btn btn-sm btn-danger" onclick="fun2()">Entregar</a>
+								<div class="btn-group pull-right" style="">
+									<!--	<a class="delete btn btn-sm btn-danger" onclick="fun2()">Entregar</a>
 									<script>
 										function fun2() {
 											var data = new Date();
@@ -58,8 +58,19 @@
 													+ (mes + 1) + '/' + ano4;
 											document.getElementById("t").innerHTML = str_data;
 										}
-									</script>
-							
+									</script>-->
+									<form action=""
+										th:action="@{/emprestimos/update/{id} (id=${emprestimo.id}) }"
+										th:object="${emprestimo}" method="post">
+										<div class="form-group col-md-8">
+											<input type="submit" class="btn btn-primary"
+												value="Devolver"
+												style="width: 71px; height: 30px; font-size: 12px; margin-left: -174px;">
+											<a type="submit" class="btn btn-primary" th:href="@{/}"
+												style="width: 89px;height: 30px;float: left;margin-right: 22px;font-size: 12px;background-color: #b20000;padding-left: 15px;"> Voltar Inicio</a>
+										</div>
+									</form>
+
 								</div>
 							</td>
 						</tr>
