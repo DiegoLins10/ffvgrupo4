@@ -1,10 +1,9 @@
 ## Projeto - Sistema de Controle de Empréstimo e Devolução de Livros
 ### Centro Paula Souza - Fatec Ferraz - Curso de Análise e Desenvolvimento de Sistemas
 ### Disciplina – Programação Web – Prof. Edson Saraiva de Almeida
-### Grupo 4
+
 - Diego Fernandes Lins
-- Diogo Felipe Silva
-- Vinicius Duque
+
 ### Objetivo
 Este projeto tem como objetivo implementar uma aplicação de empréstimo e devolução de livros, para se familiarizar com a
 plataforma de desenvolvimento web JEE Spring Boot.
