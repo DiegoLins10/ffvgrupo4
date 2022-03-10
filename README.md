@@ -1,41 +1,32 @@
 ## Projeto - Sistema de Controle de Empréstimo e Devolução de Livros
 ### Centro Paula Souza - Fatec Ferraz - Curso de Análise e Desenvolvimento de Sistemas
-### Disciplina – Programação Web – Prof. Edson Saraiva de Almeida
+### Disciplina – Laboratório de Engenharia de Software – Prof. PATRICIA SARNO MENDES
 
 - Diego Fernandes Lins
+- Vinicius Santos
+- Nathan
 
 ### Objetivo
-Este projeto tem como objetivo implementar uma aplicação de empréstimo e devolução de livros, para se familiarizar com a
-plataforma de desenvolvimento web JEE Spring Boot.
+Este projeto tem como objetivo implementar uma aplicação de reservas de hotel onde um usuario conseguirá se cadastrar no hotel e reservar um quarto da sua propria casa.
 ### Processo de Desenvolvimento
 O processo de desenvolvimento segue uma adaptação do Scrum. Cada interação tem a duração de 4 aulas. Ao final da interação o
 código é avaliado pelo time junto com o professor na atividade de revisão da sprint. Em seguida a reunião de restrospectiva do sprint é
 realizada pelo grupo e uma ata é publicada no Teams.
-![idef02](https://user-images.githubusercontent.com/14267502/84417700-6a2a2580-abec-11ea-8b39-d20213a4f15d.png)
+###Tecnologias
+- ASP NET CORE
+- Angular
+- SQL Server
+![idef02]()
 ### Backlog do produto
-- REQ01 – Cadastrar Livro
-Como – atendente da biblioteca
-Eu quero – cadastrar um livro
-De maneira que – seja possível consultar e emprestar o livro
-- REQ01CT01 – cadastrar com sucesso
-Dado: que o atendente da biblioteca tem um livro não cadastrado
-Quando: o atendente informa os dados do livro
-Então: o sistema valida os dados E apresenta uma mensagem confirmando o cadastro do livro
-- REQ02 - Consultar livro
-- REQ03 - Alterar livro
-- REQ04 - Excluir livro
-- REQ05 – Cadastrar usuário
-Como – atendente da biblioteca
-Eu quero – cadastrar um usuário
-De modo que – seja possível realizar o empréstimo de um livro.
-- REQ05CT01 – Cadastro de usuário com sucesso
-Dado (pré-requisito) – que o RA do usuário não está cadastrado.
-Quando (descrição das ações que devem ser realizadas) – o atendente digita as informações do usuário e confirma a operação.
-Então (resultado esperado) – o sistema retorna uma mensagem confirmando que o cadastro foi realizado
-- REQ05CT02 – Cadastro de usuário invalido
-Dado (pré-requisito) – que o RA do usuário está cadastrado.
-Quando (descrição das ações que devem ser realizadas) – o atendente digita as informações do usuário e confirma a operação.
-Então (resultado esperado) – o sistema retorna uma mensagem informando que o usuário já está cadastrado
+- REQ01 – Cadastrar novos usuarios
+Como – Por uma tela de cadastro
+Quando – Um novo usuario quiser se cadastrar
+De maneira que – seja possível acessar o siste,a
+- REQ01CT01 – Fazer Login
+Dado: que o usuario já tenha se cadastrado
+Quando: o usuario quiser se logar na sua conta
+Então: o sistema valida os dados do usuario (user e senha) e apresenta a tela inicial
+
 ### 1. Planejamento da Sprint
 Durante a fase de planejamento as funcionalidades nesta interação são selecionadas do backlog do produto.
 ### 2. Estratégia de desenvolvimento.
