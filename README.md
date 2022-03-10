@@ -16,7 +16,7 @@ realizada pelo grupo e uma ata é publicada no Teams.
 - ASP NET CORE
 - Angular
 - SQL Server
-![idef02]()
+!()
 ### Backlog do produto
 - REQ01 – Cadastrar novos usuarios
 Como – Por uma tela de cadastro
