@@ -33,11 +33,11 @@ Durante a fase de planejamento as funcionalidades nesta interação são selecio
 Na primeira interação a meta é criar um baseline (base de sustentação) da arquitetura do sistema a fim de definir como o código será
 organizado nas próximas interações. A arquitetura se desenvolve a partir de um exame dos requisitos mais significativos (aqueles que
 têm grande impacto na arquitetura do sistema) e de uma avaliação de risco. A estabilidade da arquitetura é avaliada através de um ou
-mais protótipos de arquitetura. O projeto do “Sistema de Controle de Empréstimo de Livros” deve se utilizar de uma arquitetura que
+mais protótipos de arquitetura. O projeto do “Sistema de Reservas” deve se utilizar de uma arquitetura que
 permita flexibilidade na configuração do sistema de persistência (mudança do sistema de gerenciamento de banco de dados) e
 manutenções na interface de usuário com poucos efeitos colaterais. A arquitetura selecionada para atender esta necessidade é a
 arquitetura MVC.
 A estratégia de construção e integração do software será ascendente na hierarquia de controle, ou seja, da base de dados (backend) para
 a interface de interação homem máquina (frontend).
 ### Modelo de Domínio
-![modelo de dominio](https://user-images.githubusercontent.com/14267502/84425324-bd55a580-abf7-11ea-99c7-f427b80fb7cc.png)
+
