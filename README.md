@@ -1,5 +1,4 @@
 ## Projeto - Sistema de Controle de Empréstimo e Devolução de Livros
-## Projeto - Pingu CheckIn: Sistema de reservas
 ### Centro Paula Souza - Fatec Ferraz - Curso de Análise e Desenvolvimento de Sistemas
 ### Disciplina – Programação Web – Prof. Edson Saraiva de Almeida
 
